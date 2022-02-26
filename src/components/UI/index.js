@@ -10,6 +10,7 @@ import {
   Collapse,
   Chip, //
   Dialog,
+  Divider,
   Flex,
   IconButton, //
   List,
@@ -355,6 +356,7 @@ export {
   Collapse,
   Chip, //
   Dialog,
+  Divider,
   Flex,
   IconButton, //
   List,

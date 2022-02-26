@@ -8,7 +8,7 @@ const countedQuery = (config, query, page = 1) =>
   new Promise((yes) => {
     const pooldb = createPool(config);
     const offset = (page - 1) * PAGE_SIZE;
-    const prevue = `SELECT COUNT (1) as amount FROM (${query}) tally`;
+    const prevue = `SELECT COUNT (1) amount FROM (${query}) tally`;
     const actual = `${query} LIMIT ${offset},${PAGE_SIZE}`;
     pooldb.query(prevue, function (ignore, amount) {
       pooldb.query(actual, function (error, rows, fields) {

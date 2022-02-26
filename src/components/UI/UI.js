@@ -366,4 +366,8 @@ export function Typography({ variant = 'body1', children, ...props }) {
   );
 }
 
+export function Divider(props) {
+  return <hr className="divider" {...props} />;
+}
+
 export { css };

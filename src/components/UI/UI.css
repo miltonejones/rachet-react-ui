@@ -21,6 +21,7 @@ body {
   --back-color-success: rgb(237, 247, 237);
 
   --hilite-color: beige;
+  --theme-spacing: 4px;
 }
 
 .ui,
@@ -109,6 +110,11 @@ body {
 
 .dialog.open {
   top: calc(50vh - (var(--dialog-height) / 2));
+}
+
+.divider {
+  width: 100%;
+  margin: calc(var(--theme-spacing) * 3) 0;
 }
 
 /* avatar

@@ -1,16 +1,18 @@
 import React from 'react';
-import { Flex, Box, TextBox, Button } from '../UI';
+import { Flex, Box, TextBox, Button, Divider } from '../UI';
 
 function PromptBody({ text, defaultValue, onClick }) {
   const [value, setValue] = React.useState(defaultValue);
   return (
     <>
       <Flex column>
-        <Box mb={2}>{text}</Box>
+        <Box mb={4} mt={4}>
+          {text}:
+        </Box>
         <Box>
           <TextBox value={value} onChange={(e) => setValue(e.target.value)} />
         </Box>
-        <hr />
+        <Divider />
         <Flex align="center">
           <Button
             onClick={() => onClick(false)}

@@ -15,7 +15,7 @@ const css = (o) =>
 const convertProps = (props) =>
   ((o) => {
     Object.keys(cssValues)
-      .filter((key) => !!props.hasOwnProperty(key))
+      .filter((key) => props.hasOwnProperty(key))
       .map((key) => copy(o, { [cssValues[key]]: proper(props[key]) }));
     !!props?.sx && copy(o, props.sx);
     return o;
@@ -102,8 +102,8 @@ const Tw = ({
 };
 
 /**
- * Collapse Wrapper provides a ref to the calling component to measure its
- * contents
+ * Collapse Wrapper provides a ref to the calling component
+ * to measure its contents
  */
 const Cw = React.forwardRef(({ children, ...props }, ref) => (
   <div ref={ref} {...props}>
