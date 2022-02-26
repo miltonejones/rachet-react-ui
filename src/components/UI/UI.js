@@ -52,7 +52,7 @@ export function Button({children, onClick, ...props }) {
     <Tw {...props}>
       <Center {...props} 
         className="ui button" 
-        style={...convertProps(props)}
+        style={{...convertProps(props)}}
         onClick={e => !props.disabled && onClick && onClick(e)} >
         {children}
       </Center>
