@@ -24,6 +24,10 @@ body {
   --theme-spacing: 4px;
 }
 
+.frame {
+  overflow: auto;
+}
+
 .ui,
 .ui-text {
   background-color: var(--back-color);

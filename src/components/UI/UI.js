@@ -196,6 +196,24 @@ export function Chip({ children, icon, ...props }) {
 }
 
 /****************************************************************************************************
+ * Frame
+ * div that acts like an IFrame
+ ****************************************************************************************************/
+export function Frame({ offset = 0, children, ...props }) {
+  const [height, setHeight] = React.useState(null);
+  const ref = React.createRef();
+  React.useEffect(() => {
+    const { offsetTop } = ref.current;
+    !!offsetTop && setHeight(`calc(100vh - ${offsetTop}px - ${offset}px)`);
+  }, [ref]);
+  return (
+    <Cw {...props} style={{ height }} className="frame" ref={ref}>
+      {children}
+    </Cw>
+  );
+}
+
+/****************************************************************************************************
  *                                          Collapse
  ****************************************************************************************************/
 export function Collapse({

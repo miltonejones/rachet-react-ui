@@ -16,6 +16,7 @@ import {
   Flex,
   IconButton,
   Box,
+  Frame,
   Typography,
   css,
   Avatar,
@@ -59,7 +60,7 @@ export default function App() {
         ))}
       </Collapse>
 
-      <Collapse on={!state.ratchet} height={collapseHeight}>
+      <Collapse on={!state.ratchet} height={collapseHeight} noscroll>
         <Dialog onClose={() => setOpen(false)} open={open}>
           Well shut my mouth and call me Harriet!!
         </Dialog>
@@ -100,7 +101,7 @@ export default function App() {
               </IconButton>
             </Flex>
             {!!state.sidebarOpen && (
-              <>
+              <Frame offset={40}>
                 {/* empty state --- connection form/list */}
                 <Collapse on={!tableNames}>
                   <ConnectionList {...connectionListArgs} />
@@ -118,10 +119,10 @@ export default function App() {
                 {/* list of columns in the selected table */}
                 {!!tableDesc && <ColumnList {...columnListArgs} />}
 
-                <Collapse on={!!state.selectedColumn}>
+                <Collapse mb={5} on={!!state.selectedColumn}>
                   <ColumnForm column={state.selectedColumn} />
                 </Collapse>
-              </>
+              </Frame>
             )}
           </div>
 

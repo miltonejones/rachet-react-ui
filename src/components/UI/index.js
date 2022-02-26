@@ -12,6 +12,7 @@ import {
   Dialog,
   Divider,
   Flex,
+  Frame,
   IconButton, //
   List,
   Select,
@@ -358,6 +359,7 @@ export {
   Dialog,
   Divider,
   Flex,
+  Frame,
   IconButton, //
   List,
   Select,
