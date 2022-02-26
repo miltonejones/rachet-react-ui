@@ -17,7 +17,7 @@ body {
   width: var(--sidebar-width);
   min-width: var(--sidebar-min-width);
   height: calc(100vh - var(--margin-offset));
-  overflow: auto;
+  overflow: hidden;
   transition: width 0.4s ease-in-out;
 }
 

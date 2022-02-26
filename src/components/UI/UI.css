@@ -96,6 +96,45 @@ body {
   height: 100vh;
 }
 
+.inspector {
+  position: relative;
+}
+
+.inspector-stat-box {
+  height: 460px;
+  overflow: auto;
+}
+
+.inspector-stat-value {
+  color: rgba(0, 0, 0, 0.44);
+}
+
+.inspector .stats {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 8px;
+  transition: opacity 0.3s ease-in;
+  opacity: 0.2;
+  font-size: 0.8rem;
+}
+
+.inspector:hover {
+  outline: 3px solid #37a;
+  outline-offset: -6px;
+}
+
+.inspector .stats:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary);
+}
+
+.inspector:hover .stats {
+  opacity: 1;
+}
+
 /* dialog
 --------------------------------------------------------------------------------------- */
 .dialog {

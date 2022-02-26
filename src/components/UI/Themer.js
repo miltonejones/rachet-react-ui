@@ -105,10 +105,12 @@ const Tw = ({
  * Collapse Wrapper provides a ref to the calling component
  * to measure its contents
  */
-const Cw = React.forwardRef(({ children, ...props }, ref) => (
-  <div ref={ref} {...props}>
-    {children}
-  </div>
+const Cw = React.forwardRef(({ children, style, ...props }, ref) => (
+  <Tw {...props}>
+    <div ref={ref} style={{ ...convertProps(props), ...style }} {...props}>
+      {children}
+    </div>
+  </Tw>
 ));
 
 export { convertProps, css, Tw, Cw, THEME_SPACING };

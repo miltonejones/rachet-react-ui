@@ -21,6 +21,7 @@ import {
   css,
   Avatar,
   Dialog,
+  Inspector,
 } from './components/UI/UI';
 import { UILib } from './components/UI';
 import DocNode from './components/UI/Docs/DocNode';
@@ -101,20 +102,24 @@ export default function App() {
               </IconButton>
             </Flex>
             {!!state.sidebarOpen && (
-              <Frame offset={40}>
+              <Frame offset={48}>
                 {/* empty state --- connection form/list */}
                 <Collapse on={!tableNames}>
                   <ConnectionList {...connectionListArgs} />
                 </Collapse>
 
                 {/* list of tables in the current connection */}
-                <Collapse
-                  on={!!tableNames}
-                  height={!!tableName ? '140px' : 'calc(100vh - 20px)'}
-                >
-                  {/* table list card */}
-                  <TableList {...tableListArgs} />
-                </Collapse>
+                <Inspector>
+                  {' '}
+                  <Collapse
+                    noscroll
+                    on={!!tableNames}
+                    height={!!tableName ? '140px' : -1}
+                  >
+                    {/* table list card */}
+                    <TableList {...tableListArgs} />
+                  </Collapse>{' '}
+                </Inspector>
 
                 {/* list of columns in the selected table */}
                 {!!tableDesc && <ColumnList {...columnListArgs} />}

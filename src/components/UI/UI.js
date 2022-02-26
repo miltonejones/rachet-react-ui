@@ -2,6 +2,7 @@ import React from 'react';
 import './UI.css';
 import { convertProps, css, Tw, Cw, THEME_SPACING } from './Themer';
 import { AlertCircle, CheckCircle, AlertTriangle, Info } from '../../icons';
+import useInspector from './hooks/useInspector';
 
 /****************************************************************************************************
  *                                          RACHET UI
@@ -213,6 +214,70 @@ export function Frame({ offset = 0, children, ...props }) {
   );
 }
 
+function InspectorBody({ name, styles }) {
+  return (
+    <>
+      {' '}
+      <Box className="inspector-stat-box">
+        {!!styles && (
+          <List
+            header={name}
+            items={styles
+              .filter((r) => !!r.value)
+              .map((j, i) => (
+                <Stack p={1}>
+                  <Typography variant="subtitle">{j.key}</Typography>
+                  <Typography
+                    className="inspector-stat-value"
+                    variant="caption"
+                  >
+                    {j.value}
+                  </Typography>
+                </Stack>
+              ))}
+          />
+        )}
+      </Box>
+    </>
+  );
+}
+
+/****************************************************************************************************
+ * Inspector
+ ****************************************************************************************************/
+export function Inspector({ children, ...props }) {
+  const { open, setOpen, shown, ref, stats } = useInspector();
+  const onClose = () => setOpen(!1);
+  const dialogProps = { onClose, open, width: '400px', height: '500px' };
+  return (
+    <>
+      <Cw {...props} className="inspector" ref={ref}>
+        {children}
+        <Box onClick={() => setOpen(!open)} className="stats">
+          {stats}
+        </Box>
+      </Cw>
+      <Dialog {...dialogProps}>
+        <InspectorBody {...shown} />
+      </Dialog>
+    </>
+  );
+}
+
+/****************************************************************************************************
+ *                                          Spacer
+ ****************************************************************************************************/
+export const Spacer = () => <Box sx={{ flexGrow: 1 }} />;
+
+/****************************************************************************************************
+ *                                          Stack
+ ****************************************************************************************************/
+export const Stack = ({ children, ...props }) => (
+  <Flex column {...props}>
+    {children}
+  </Flex>
+);
+
 /****************************************************************************************************
  *                                          Collapse
  ****************************************************************************************************/
@@ -222,6 +287,7 @@ export function Collapse({
   children,
   noscroll,
   className,
+  debug,
   ...props
 }) {
   const [openHeight, setOpenHeight] = React.useState(height);
@@ -229,6 +295,7 @@ export function Collapse({
   React.useEffect(() => {
     if (!ref.current) return;
     const { offsetHeight } = ref.current;
+    if (offsetHeight < 100) return;
     if (!!height || !offsetHeight || !on) {
       height !== openHeight && setOpenHeight(height);
       return;
@@ -241,6 +308,7 @@ export function Collapse({
         className={css({ collapse: 1, on, [className]: 1, noscroll })}
         {...props}
       >
+        {!!debug && <small>[[{openHeight}]]</small>}
         {children}
       </div>
     </Cw>

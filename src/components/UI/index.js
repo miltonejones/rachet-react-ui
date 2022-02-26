@@ -14,6 +14,7 @@ import {
   Flex,
   Frame,
   IconButton, //
+  Inspector,
   List,
   Select,
   Switch, //
@@ -361,6 +362,7 @@ export {
   Flex,
   Frame,
   IconButton, //
+  Inspector,
   List,
   Select,
   Switch, //

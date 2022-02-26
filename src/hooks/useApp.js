@@ -23,17 +23,27 @@ export const collate = (length, pageSize, page) => {
 };
 
 export default function useApp() {
-  const [tableName, setTableName] = React.useState(null);
-  const [table, setTable] = React.useState(null);
-  const [tableDesc, setTableDesc] = React.useState(null);
-  const [tableNames, setTableNames] = React.useState(null);
-  const [page, setPage] = React.useState(1);
+  // const [tableName, setTableName] = React.useState(null);
+  // const [table, setTable] = React.useState(null);
+  // const [tableDesc, setTableDesc] = React.useState(null);
+  // const [tableNames, setTableNames] = React.useState(null);
+  // const [page, setPage] = React.useState(1);
+
   const [state, setState] = React.useState({
     ratchet: !1,
+    page: 1,
     configs: getConfigs(),
     sidebarOpen: !0,
   });
   const [settings, setSettings] = React.useState({ connect: !0 });
+
+  const changeState = (key, value) => setState((s) => ({ ...s, [key]: value }));
+  const { tableName, table, tableDesc, tableNames, page } = state;
+  const setTableName = (value) => changeState('tableName', value);
+  const setTable = (value) => changeState('table', value);
+  const setTableDesc = (value) => changeState('tableDesc', value);
+  const setTableNames = (value) => changeState('tableNames', value);
+  const setPage = (value) => changeState('page', value);
 
   const save = (input) => {
     const { title, connect, ...config } = input;
@@ -66,7 +76,11 @@ export default function useApp() {
     if (!!tableName) {
       setTableName(null);
       setTable(null);
-      setState({ configs: getConfigs(), sidebarOpen: state.sidebarOpen });
+      setState({
+        configs: getConfigs(),
+        sidebarOpen: state.sidebarOpen,
+        tableNames: state.tableNames,
+      });
       return;
     }
   };

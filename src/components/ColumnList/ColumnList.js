@@ -5,7 +5,7 @@ import { Key, Lock } from '../../icons';
 export default function ColumnList({ tableName, state, getColumn, columns }) {
   return (
     <>
-      <Card style={{ maxWidth: 325 }} mt={1}>
+      <Card style={{ maxWidth: 325 }} mt={1} mb={6}>
         <legend>Columns in {tableName}</legend>
         <List
           dense={!!state.columnName}

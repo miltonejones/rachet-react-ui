@@ -24,17 +24,21 @@ export default function TableList({
     >
       <Plus /> <Box ml={2}>New Query</Box>
     </Flex>,
-    <Flex align="center" onClick={() => setTableNames(null)} className="li red">
+    <Flex
+      align="center"
+      onClick={() => {
+        setTableNames(null);
+        clearTable();
+      }}
+      className="li red"
+    >
       <Logout /> <Box ml={2}>Close Connection</Box>
     </Flex>,
   ];
+  // , maxHeight: 'calc(100vh - 200px)'
   return (
     <>
-      <Card
-        style={{ maxWidth: 325, maxHeight: 'calc(100vh - 200px)' }}
-        mt={1}
-        mb={1}
-      >
+      <Card style={{ maxWidth: 325 }} mt={1} mb={6}>
         {' '}
         <legend>Tables in {state.connectionName}</legend>
         <List
