@@ -101,10 +101,6 @@ export default function App() {
             </Flex>
             {!!state.sidebarOpen && (
               <>
-                <Collapse height="440px" on={state.connectForm}>
-                  <ConnectionForm {...connectionFormArgs} />
-                </Collapse>
-
                 {/* empty state --- connection form/list */}
                 <Collapse on={!tableNames}>
                   <ConnectionList {...connectionListArgs} />
@@ -169,6 +165,15 @@ export default function App() {
           <Smiley />
         </Flex>
       </Flex>
+
+      <Dialog
+        height="440px"
+        width="340px"
+        onClose={() => setState((s) => ({ ...s, connectForm: !1 }))}
+        open={state.connectForm}
+      >
+        <ConnectionForm {...connectionFormArgs} />
+      </Dialog>
     </div>
   );
 }
