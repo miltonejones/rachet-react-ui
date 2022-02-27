@@ -22,6 +22,7 @@ import {
   Avatar,
   Dialog,
   Backdrop,
+  Snackbar,
   Spacer,
   Spinner,
   Menu,
@@ -50,6 +51,8 @@ export default function App() {
     tableName,
     tableNames,
     viewPaneCss,
+    snackState,
+    say,
   } = useApp();
   const [open, setOpen] = React.useState(false);
   const CloseIcon = !state.sidebarOpen ? Menu : Close;
@@ -189,6 +192,7 @@ export default function App() {
       >
         <ConnectionForm {...connectionFormArgs} />
       </Dialog>
+      <Snackbar {...snackState} where="se" />
     </div>
   );
 }

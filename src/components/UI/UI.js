@@ -9,6 +9,7 @@ import {
   useInspector,
   useCollapse,
 } from './Themer';
+import useComponentState from './hooks/useComponentState';
 import { AlertCircle, CheckCircle, AlertTriangle, Info } from '../../icons';
 
 /****************************************************************************************************
@@ -336,7 +337,7 @@ export function List({ items, children, dense, header, footer, ...props }) {
 /****************************************************************************************************
  *                                            Menu
  ****************************************************************************************************/
-export function Menu({ options = [], onChange, button, ...props }) {
+export function Menu({ options = [], onChange, button }) {
   const ref = React.createRef();
   const box = React.useRef(null);
   const [coords, setCoords] = React.useState(null);
@@ -388,6 +389,24 @@ export function Select({ options = [], value, label, ...props }) {
     </select>
   );
 }
+
+/****************************************************************************************************
+ *                                          Snackbar
+ ****************************************************************************************************/
+export const Snackbar = ({
+  children,
+  open,
+  where = 'sw',
+  onClose,
+  ...props
+}) => {
+  return (
+    <Iw {...props}>
+      <Backdrop open={open} onClose={onClose} />
+      <Box className={css({ snackbar: 1, open, [where]: 1 })}>{children}</Box>
+    </Iw>
+  );
+};
 
 /****************************************************************************************************
  *                                          Spacer

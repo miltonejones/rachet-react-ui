@@ -18,6 +18,7 @@ import {
   List,
   Menu,
   Select,
+  Snackbar,
   Switch, //
   TextBox, //
   Typography, //
@@ -25,6 +26,7 @@ import {
 } from './UI';
 
 import usePrompt from './hooks/usePrompt';
+import useSnackbar from './hooks/useSnackbar';
 import { AlertTriangle } from '../../icons';
 
 const UILib = {
@@ -367,6 +369,8 @@ export {
   List,
   Menu,
   Select,
+  Snackbar,
+  useSnackbar,
   Switch, //
   TextBox, //
   Typography, //

@@ -99,9 +99,10 @@ body {
 
 /* inspector
 --------------------------------------------------------------------------------------- */
-/* .inspector {
-  position: relative;
-} */
+.inspector {
+  outline: 1px dotted rgba(0, 0, 0, 0.44);
+  outline-offset: -3px;
+}
 
 .inspector-stat-box {
   height: 460px;
@@ -126,7 +127,6 @@ body {
 
 .inspector:hover {
   outline: 3px solid #37a;
-  outline-offset: -6px;
 }
 
 .inspector .stats:hover {
@@ -404,6 +404,63 @@ ul.dense li {
   height: var(--menu-content-height);
   display: block;
   padding: 12px;
+}
+
+/* snackbar
+--------------------------------------------------------------------------------------- */
+.snackbar {
+  position: absolute;
+  z-index: 2;
+  background-color: #27a;
+  color: #fff;
+  padding: 12px;
+  font-size: 0.9rem;
+  transition: top 0.5s ease-in;
+  max-height: 32px;
+}
+
+/* .snackbar.open {
+  top: 12px;
+} */
+
+.snackbar.nw {
+  transition: top 0.5s ease-in;
+  top: -112px;
+  left: 12px;
+}
+
+.snackbar.nw.open {
+  top: 12px;
+}
+
+.snackbar.sw {
+  transition: bottom 0.5s ease-in;
+  left: 12px;
+  bottom: -112px;
+}
+
+.snackbar.sw.open {
+  bottom: 12px;
+}
+
+.snackbar.ne {
+  transition: right 0.5s ease-in;
+  right: -112px;
+  top: 12px;
+}
+
+.snackbar.ne.open {
+  right: 12px;
+}
+
+.snackbar.se {
+  transition: bottom 0.5s ease-in;
+  bottom: -112px;
+  right: 12px;
+}
+
+.snackbar.se.open {
+  bottom: 12px;
 }
 
 /* typography

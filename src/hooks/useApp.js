@@ -6,6 +6,8 @@ import {
   execQuery,
 } from './useDbConnector';
 
+import { useSnackbar } from '../components/UI';
+
 const getConfigs = () =>
   JSON.parse(localStorage.getItem('mysql-configs') ?? '{}');
 
@@ -38,7 +40,7 @@ export default function useApp() {
   const setTableDesc = (value) => changeState('tableDesc', value);
   const setTableNames = (value) => changeState('tableNames', value);
   const setPage = (value) => changeState('page', value);
-
+  const { snackState, say } = useSnackbar();
   const save = (input) => {
     const { title, connect, ...config } = input;
     if (!title) return alert('You must enter a Connection Name');
@@ -66,6 +68,7 @@ export default function useApp() {
     const tables = res.rows.map((f) => f[Object.keys(f)[0]]);
     setTableNames(tables);
     changeState('busy', !1);
+    say('Loaded ' + s.database);
   };
 
   const clearTable = () => {
@@ -194,5 +197,7 @@ export default function useApp() {
     tableName,
     tableNames,
     viewPaneCss,
+    snackState,
+    say,
   };
 }
