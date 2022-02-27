@@ -391,6 +391,15 @@ ul.dense li {
   cursor: pointer;
 }
 
+.menu .menu-item {
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.menu .menu-item:hover {
+  background-color: rgba(90, 90, 90, 0.1);
+}
+
 .menu.open {
   height: var(--menu-content-height);
   display: block;

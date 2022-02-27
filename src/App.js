@@ -22,6 +22,7 @@ import {
   Avatar,
   Dialog,
   Backdrop,
+  Spacer,
   Spinner,
   Menu,
 } from './components/UI/UI';
@@ -89,7 +90,7 @@ export default function App() {
                   </Box>
                 </>
               )}
-              <Box sx={{ flexGrow: 1 }} />
+              <Spacer />
               <IconButton
                 mr={4}
                 size="medium"
@@ -130,12 +131,19 @@ export default function App() {
 
             {!!table && !!tableDesc && (
               <Box>
-                <Flex style={{ width: '100%' }}>
+                <Flex align="center" style={{ width: '100%' }}>
                   <PaginationBar
                     {...paginationParams}
                     click={getPage}
                     label="row"
                   />
+                  <Spacer />
+                  {!!table.fields && (
+                    <Menu
+                      button="Sort..."
+                      options={table.fields.map((f) => f.name)}
+                    />
+                  )}
                 </Flex>
 
                 <div
@@ -153,7 +161,7 @@ export default function App() {
         </Flex>
       </Collapse>
       <Flex mt={2}>
-        <Box sx={{ flexGrow: 1 }} />
+        <Spacer />
         <Flex
           align="center"
           onClick={() => setState({ ...state, ratchet: !state.ratchet })}

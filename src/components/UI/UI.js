@@ -357,7 +357,11 @@ export function Menu({ options = [], onChange, button, ...props }) {
             <List
               dense
               items={options.map((o, i) => (
-                <Box key={i} onClick={() => onChange(i)}>
+                <Box
+                  key={i}
+                  onClick={() => onChange && onChange(i)}
+                  className="menu-item"
+                >
                   {o}
                 </Box>
               ))}
