@@ -340,20 +340,18 @@ export function Menu({ options = [], onChange, button, ...props }) {
   const ref = React.createRef();
   const box = React.useRef(null);
   const [coords, setCoords] = React.useState(null);
+  const { offsetHeight: menuHeight } = box.current ?? {};
+  const { offsetLeft: x, offsetTop: y, offsetHeight: h } = ref.current ?? {};
   const onClick = () =>
-    !!ref.current &&
-    setCoords({
-      left: ref.current.offsetLeft + 'px',
-      top: ref.current.offsetTop + ref.current.offsetHeight + 'px',
-    });
-  const style = { '--menu-content-height': box?.current?.offsetHeight + 'px' };
+    !!ref.current && setCoords({ left: x + 'px', top: y + h + 'px' });
+  const style = { '--menu-content-height': menuHeight + 'px' };
   return (
     <>
       <Backdrop open={!!coords} onClose={() => setCoords(null)} />
       <span style={style}>
-        <Cw ref={ref} onClick={onClick}>
+        <Cw ref={ref} onClick={onClick} className="menu-button">
           {button}
-        </Cw>{' '}
+        </Cw>
         <Box className={css({ menu: 1, open: !!coords })} style={coords}>
           <Cw ref={box}>
             <List
@@ -403,7 +401,7 @@ export function Spinner({ children, ...props }) {
   );
 }
 /****************************************************************************************************
- *                                          Stack
+ *                                           Stack
  ****************************************************************************************************/
 export const Stack = ({ children, ...props }) => (
   <Flex column {...props}>
@@ -412,7 +410,7 @@ export const Stack = ({ children, ...props }) => (
 );
 
 /****************************************************************************************************
- *                                             Switch
+ *                                          Switch
  ****************************************************************************************************/
 export function Switch({ onChange, ...props }) {
   return (
@@ -430,6 +428,7 @@ export function Switch({ onChange, ...props }) {
     </Iw>
   );
 }
+
 /****************************************************************************************************
  *                                           TextBox
  ****************************************************************************************************/

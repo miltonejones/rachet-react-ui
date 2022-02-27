@@ -374,6 +374,8 @@ ul.dense li {
   max-width: 200px;
 }
 
+/* menu
+--------------------------------------------------------------------------------------- */
 .menu {
   position: absolute;
   height: 0;
@@ -383,6 +385,10 @@ ul.dense li {
   padding: 0;
   transition: height 0.2s ease-in-out, padding 0.2s ease-in-out;
   overflow: hidden;
+}
+
+.menu-button {
+  cursor: pointer;
 }
 
 .menu.open {
