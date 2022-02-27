@@ -215,15 +215,30 @@ export function Frame({ offset = 0, children, ...props }) {
 }
 
 function InspectorBody({ name, styles }) {
+  const [filterText, setFilterText] = React.useState('');
   return (
     <>
       {' '}
       <Box className="inspector-stat-box">
         {!!styles && (
           <List
-            header={name}
+            header={
+              <Stack>
+                <Typography variant="subtitle" mb={2}>Styles for &lt;{name} /&gt;</Typography>
+                <TextBox
+                mb={2}
+                  value={filterText}
+                  onChange={(e) => setFilterText(e.target.value)}
+                />
+              </Stack>
+            }
             items={styles
               .filter((r) => !!r.value)
+              .filter(
+                (e) =>
+                  !filterText ||
+                  e.key.toLowerCase().indexOf(filterText.toLowerCase()) > -1
+              )
               .map((j, i) => (
                 <Stack p={1}>
                   <Typography variant="subtitle">{j.key}</Typography>
@@ -246,12 +261,12 @@ function InspectorBody({ name, styles }) {
  * Inspector
  ****************************************************************************************************/
 export function Inspector({ children, ...props }) {
-  const { open, setOpen, shown, ref, stats } = useInspector();
+  const { open, setOpen, shown, ref, stats, style } = useInspector();
   const onClose = () => setOpen(!1);
   const dialogProps = { onClose, open, width: '400px', height: '500px' };
   return (
     <>
-      <Cw {...props} className="inspector" ref={ref}>
+      <Cw {...props} style={style} className="inspector" ref={ref}>
         {children}
         <Box onClick={() => setOpen(!open)} className="stats">
           {stats}

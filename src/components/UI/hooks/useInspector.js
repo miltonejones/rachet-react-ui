@@ -8,7 +8,7 @@ const styleParse = (i) =>
 
 export default function useInspector() {
   const { state, setState } = useComponentState();
-  const { open, detail, stats } = state;
+  const { open, detail, stats, style } = state;
   const setOpen = (f) => setState('open', f);
   const ref = React.createRef();
   React.useEffect(() => {
@@ -28,6 +28,10 @@ export default function useInspector() {
      */
     if (stats === figures) return;
     setState('stats', figures);
+    setState('style', {
+      '--inspector-top': `${y}px`,
+      '--inspector-left': `${x}px`,
+    });
     !!children &&
       setState(
         'detail',
@@ -52,5 +56,6 @@ export default function useInspector() {
     shown,
     ref,
     stats,
+    style,
   };
 }

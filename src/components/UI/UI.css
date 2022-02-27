@@ -96,9 +96,11 @@ body {
   height: 100vh;
 }
 
-.inspector {
+/* inspector
+--------------------------------------------------------------------------------------- */
+/* .inspector {
   position: relative;
-}
+} */
 
 .inspector-stat-box {
   height: 460px;
@@ -111,13 +113,13 @@ body {
 
 .inspector .stats {
   position: absolute;
-  top: 4px;
-  right: 6px;
+  top: calc(var(--inspector-top) - 24px);
+  left: var(--inspector-left);
   background-color: var(--color-primary);
   color: #fff;
   padding: 8px;
   transition: opacity 0.3s ease-in;
-  opacity: 0.2;
+  opacity: 0.05;
   font-size: 0.8rem;
 }
 
