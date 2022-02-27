@@ -193,6 +193,13 @@ export function Dialog({
 }
 
 /****************************************************************************************************
+ *                                         Divider
+ ****************************************************************************************************/
+export function Divider(props) {
+  return <hr className="divider" {...props} />;
+}
+
+/****************************************************************************************************
  * Flex
  * multi-purpose little div-box, very useful
  ****************************************************************************************************/
@@ -492,10 +499,6 @@ export function Typography({ variant = 'body1', children, ...props }) {
       </div>
     </Iw>
   );
-}
-
-export function Divider(props) {
-  return <hr className="divider" {...props} />;
 }
 
 function Iw({ inspect, children, ...props }) {

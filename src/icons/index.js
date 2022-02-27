@@ -27,7 +27,7 @@ export const CheckCircle = (p) => (
 export const Database = (p) => <IconBase {...p} src="/icon/database.svg" />;
 export const Plus = (p) => <IconBase {...p} src="/icon/plus.svg" />;
 export const Key = (p) => <IconBase {...p} src="/icon/key.svg" />;
-export const Menu = (p) => <IconBase {...p} src="/icon/menu.svg" />;
+export const Hamburger = (p) => <IconBase {...p} src="/icon/menu.svg" />;
 export const Lock = (p) => <IconBase {...p} src="/icon/lock.svg" />;
 export const Logout = (p) => <IconBase {...p} src="/icon/log-out.svg" />;
 export const Aperture = (p) => <IconBase {...p} src="/icon/aperture.svg" />;

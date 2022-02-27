@@ -30,7 +30,7 @@ import {
 import { UILib } from './components/UI';
 import DocNode from './components/UI/Docs/DocNode';
 import useApp from './hooks/useApp';
-import { Smiley, Close, Menu, Dribble } from './icons';
+import { Smiley, Close, Hamburger, Dribble } from './icons';
 
 import './style.css';
 
@@ -55,7 +55,7 @@ export default function App() {
     say,
   } = useApp();
   const [open, setOpen] = React.useState(false);
-  const CloseIcon = !state.sidebarOpen ? Menu : Close;
+  const CloseIcon = !state.sidebarOpen ? Hamburger : Close;
   return (
     <div style={viewPaneCss} className="App">
       <Collapse on={state.ratchet} height={collapseHeight}>
