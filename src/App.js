@@ -23,6 +23,7 @@ import {
   Dialog,
   Backdrop,
   Spinner,
+  Menu,
 } from './components/UI/UI';
 import { UILib } from './components/UI';
 import DocNode from './components/UI/Docs/DocNode';
@@ -101,6 +102,19 @@ export default function App() {
             </Flex>
             {!!state.sidebarOpen && (
               <Frame offset={48}>
+                <Menu
+                  options={[
+                    'collapseHeight',
+                    'columnListArgs',
+                    'connectionListArgs',
+                    'connectionFormArgs',
+                    'getPage',
+                    'paginationParams',
+                    'queryPaneArgs',
+                  ]}
+                  onChange={(v) => alert(v)}
+                  button={<>click me!</>}
+                />
                 {/* empty state --- connection form/list */}
                 <Collapse on={!tableNames}>
                   <ConnectionList {...connectionListArgs} />

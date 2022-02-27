@@ -16,6 +16,7 @@ import {
   IconButton, //
   Inspector,
   List,
+  Menu,
   Select,
   Switch, //
   TextBox, //
@@ -364,6 +365,7 @@ export {
   IconButton, //
   Inspector,
   List,
+  Menu,
   Select,
   Switch, //
   TextBox, //

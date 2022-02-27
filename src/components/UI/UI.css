@@ -374,6 +374,23 @@ ul.dense li {
   max-width: 200px;
 }
 
+.menu {
+  position: absolute;
+  height: 0;
+  min-width: 140px;
+  background-color: white;
+  box-shadow: var(--card-shadow);
+  padding: 0;
+  transition: height 0.2s ease-in-out, padding 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.menu.open {
+  height: var(--menu-content-height);
+  display: block;
+  padding: 12px;
+}
+
 /* typography
 --------------------------------------------------------------------------------------- */
 .typo.body1 {

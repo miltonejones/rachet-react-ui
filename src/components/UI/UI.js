@@ -334,6 +334,44 @@ export function List({ items, children, dense, header, footer, ...props }) {
 }
 
 /****************************************************************************************************
+ *                                            Menu
+ ****************************************************************************************************/
+export function Menu({ options = [], onChange, button, ...props }) {
+  const ref = React.createRef();
+  const box = React.useRef(null);
+  const [coords, setCoords] = React.useState(null);
+  const onClick = () =>
+    !!ref.current &&
+    setCoords({
+      left: ref.current.offsetLeft + 'px',
+      top: ref.current.offsetTop + ref.current.offsetHeight + 'px',
+    });
+  const style = { '--menu-content-height': box?.current?.offsetHeight + 'px' };
+  return (
+    <>
+      <Backdrop open={!!coords} onClose={() => setCoords(null)} />
+      <span style={style}>
+        <Cw ref={ref} onClick={onClick}>
+          {button}
+        </Cw>{' '}
+        <Box className={css({ menu: 1, open: !!coords })} style={coords}>
+          <Cw ref={box}>
+            <List
+              dense
+              items={options.map((o, i) => (
+                <Box key={i} onClick={() => onChange(i)}>
+                  {o}
+                </Box>
+              ))}
+            />
+          </Cw>
+        </Box>
+      </span>
+    </>
+  );
+}
+
+/****************************************************************************************************
  *                                            Select
  ****************************************************************************************************/
 export function Select({ options = [], value, label, ...props }) {
@@ -355,7 +393,7 @@ export function Select({ options = [], value, label, ...props }) {
 export const Spacer = () => <Box sx={{ flexGrow: 1 }} />;
 
 /****************************************************************************************************
- *                                          Spacer
+ *                                          Spinner
  ****************************************************************************************************/
 export function Spinner({ children, ...props }) {
   return (
