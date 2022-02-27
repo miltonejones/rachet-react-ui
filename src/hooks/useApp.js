@@ -23,12 +23,6 @@ export const collate = (length, pageSize, page) => {
 };
 
 export default function useApp() {
-  // const [tableName, setTableName] = React.useState(null);
-  // const [table, setTable] = React.useState(null);
-  // const [tableDesc, setTableDesc] = React.useState(null);
-  // const [tableNames, setTableNames] = React.useState(null);
-  // const [page, setPage] = React.useState(1);
-
   const [state, setState] = React.useState({
     ratchet: !1,
     page: 1,
@@ -67,9 +61,11 @@ export default function useApp() {
   }, []);
 
   const openDb = async (s) => {
+    changeState('busy', !0);
     const res = await connectToDb(s);
     const tables = res.rows.map((f) => f[Object.keys(f)[0]]);
     setTableNames(tables);
+    changeState('busy', !1);
   };
 
   const clearTable = () => {
@@ -97,18 +93,19 @@ export default function useApp() {
   };
 
   const getTable = async (s, p) => {
+    changeState('busy', !0);
     const res = await openTable(settings, s, p);
-    // alert(s);
-    console.log(res);
     setTableName(s);
     setTable(res);
     setPage(p);
     const des = await describeTable(settings, s, p);
     console.log(des);
     setTableDesc(des);
+    changeState('busy', !1);
   };
 
   const execSQL = async (queryText, p = 1) => {
+    changeState('busy', !0);
     const res = await execQuery(settings, queryText, p);
     console.log(res);
     setState({ ...state, queryText });
@@ -118,6 +115,7 @@ export default function useApp() {
       rows: res.fields.map((f) => ({ COLUMN_NAME: f.name, DATA_TYPE: f.type })),
     });
     setPage(p);
+    changeState('busy', !1);
   };
 
   const openConnection = (key) => {

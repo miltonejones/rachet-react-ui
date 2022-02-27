@@ -30,6 +30,9 @@ export const Key = (p) => <IconBase {...p} src="/icon/key.svg" />;
 export const Menu = (p) => <IconBase {...p} src="/icon/menu.svg" />;
 export const Lock = (p) => <IconBase {...p} src="/icon/lock.svg" />;
 export const Logout = (p) => <IconBase {...p} src="/icon/log-out.svg" />;
+export const Aperture = (p) => <IconBase {...p} src="/icon/aperture.svg" />;
+export const Dribble = (p) => <IconBase {...p} src="/icon/dribble.svg" />;
+export const Sync = (p) => <IconBase {...p} src="/icon/refresh-cw.svg" />;
 export const Smiley = (p) => (
   <IconBase width="24" height="24" {...p} src="/icon/smiley.svg" />
 );

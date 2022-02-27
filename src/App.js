@@ -21,12 +21,13 @@ import {
   css,
   Avatar,
   Dialog,
-  Inspector,
+  Backdrop,
+  Spinner,
 } from './components/UI/UI';
 import { UILib } from './components/UI';
 import DocNode from './components/UI/Docs/DocNode';
 import useApp from './hooks/useApp';
-import { Smiley, Close, Menu } from './icons';
+import { Smiley, Close, Menu, Dribble } from './icons';
 
 import './style.css';
 
@@ -62,9 +63,6 @@ export default function App() {
       </Collapse>
 
       <Collapse on={!state.ratchet} height={collapseHeight} noscroll>
-        <Dialog onClose={() => setOpen(false)} open={open}>
-          Well shut my mouth and call me Harriet!!
-        </Dialog>
         <Flex>
           <div className="sidebar">
             <Flex align="center">
@@ -107,23 +105,18 @@ export default function App() {
                 <Collapse on={!tableNames}>
                   <ConnectionList {...connectionListArgs} />
                 </Collapse>
-
                 {/* list of tables in the current connection */}
-                <Inspector>
-                  {' '}
-                  <Collapse
-                    noscroll
-                    on={!!tableNames}
-                    height={!!tableName ? '140px' : -1}
-                  >
-                    {/* table list card */}
-                    <TableList {...tableListArgs} />
-                  </Collapse>{' '}
-                </Inspector>
-
+                <Collapse
+                  inspect
+                  noscroll
+                  on={!!tableNames}
+                  height={!!tableName ? '140px' : -1}
+                >
+                  {/* table list card */}
+                  <TableList {...tableListArgs} />
+                </Collapse>{' '}
                 {/* list of columns in the selected table */}
                 {!!tableDesc && <ColumnList {...columnListArgs} />}
-
                 <Collapse mb={5} on={!!state.selectedColumn}>
                   <ColumnForm column={state.selectedColumn} />
                 </Collapse>
@@ -172,6 +165,13 @@ export default function App() {
         </Flex>
       </Flex>
 
+      <Backdrop open={state.busy} style={{ color: '#fff' }}>
+        <Spinner>
+          {' '}
+          <Dribble />{' '}
+        </Spinner>
+        Loading...
+      </Backdrop>
       <Dialog
         height="440px"
         width="340px"

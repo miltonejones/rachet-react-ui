@@ -1,5 +1,7 @@
 import React from 'react';
 import cssValues from './css-values';
+import useInspector from './hooks/useInspector';
+import useCollapse from './hooks/useCollapse';
 
 const THEME_SPACING = 4;
 
@@ -35,6 +37,7 @@ const Tw = ({
   checked,
   width,
   height,
+  speed = '1s',
 }) => {
   const backgroundColor = {
     outlined: 'transparent',
@@ -87,6 +90,7 @@ const Tw = ({
     '--back-color': disabled ? offColor : backColor,
     '--dialog-width': width,
     '--dialog-height': height,
+    '--animation-speed': speed,
     '--border-style': borderStyle[variant],
     '--control-size': controlSizes[size],
     opacity: disabled ? 0.2 : 1,
@@ -106,11 +110,9 @@ const Tw = ({
  * to measure its contents
  */
 const Cw = React.forwardRef(({ children, style, ...props }, ref) => (
-  <Tw {...props}>
-    <div ref={ref} style={{ ...convertProps(props), ...style }} {...props}>
-      {children}
-    </div>
-  </Tw>
+  <div ref={ref} style={{ ...convertProps(props), ...style }} {...props}>
+    {children}
+  </div>
 ));
 
-export { convertProps, css, Tw, Cw, THEME_SPACING };
+export { convertProps, css, Tw, Cw, THEME_SPACING, useInspector, useCollapse };

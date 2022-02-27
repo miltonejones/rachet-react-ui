@@ -89,6 +89,7 @@ body {
   opacity: 0.3;
   top: 0px;
   left: 0px;
+  overflow: hidden;
 }
 
 .backdrop.open {
@@ -400,4 +401,17 @@ ul.dense li {
 
 .typo.button {
   text-transform: uppercase;
+}
+
+.spinner {
+  animation: spin var(--animation-speed) infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
