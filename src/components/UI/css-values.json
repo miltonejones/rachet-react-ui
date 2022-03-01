@@ -11,5 +11,6 @@
   "m": "margin",
   "w": "width",
   "bg": "background",
-  "flex": "flexGrow"
+  "flex": "flexGrow",
+  "spacing": "gap"
 }

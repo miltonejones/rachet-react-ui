@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function useCollapse(height, on) {
   const [openHeight, setOpenHeight] = React.useState(height);
@@ -11,8 +11,8 @@ export default function useCollapse(height, on) {
       height !== openHeight && setOpenHeight(height);
       return;
     }
-    setOpenHeight(offsetHeight + 'px');
-  }, [ref, on, height]);
-  const style = { '--open-height': openHeight };
+    setOpenHeight(offsetHeight + "px");
+  }, [ref, on, height, openHeight]);
+  const style = { "--open-height": openHeight };
   return { style, ref };
 }
