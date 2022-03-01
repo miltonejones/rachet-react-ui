@@ -101,7 +101,7 @@ body {
 }
 
 .git-box {
-  width: 340px;
+  width: 25vw;
   border: solid 1px rgba(0,0,0,0.2);
   border-radius: 4px;
   padding-right: 12px;

@@ -37,6 +37,7 @@ export default function App() {
   const { search } = useApp()
   const {state, toggle, setState} = useComponentState({open: !1, c1: !0, c2: !0, c3: !0});
   const { open, param, results, c1, c2, c3 } = state;
+  const maxWidth = 345;
   return (
     <div  className="App">
      <AppBar className="toolbar">
@@ -63,7 +64,7 @@ export default function App() {
 
     <Flex className="workspace">
       <Stack className="banner">
-        <Typography variant="h1" mb={4}>The React Component Library literally nobody asked for.</Typography>
+        <Typography className="bold" variant="h1" mb={4}>The React Component Library literally nobody asked for.</Typography>
         <Typography mt={2} variant="body1"> Ratchet-UI provides a light-weight, customizable, and open-source library of component starter classes, 
         enabling you to create the framework you need for your application.</Typography>
       
@@ -85,13 +86,13 @@ export default function App() {
         <Flex >
 
         <Stack mr={2}>
-            <Paper  mb={2} style={{width: 300}}>
+            <Paper  mb={2} style={{width: maxWidth}}>
               <Flex>
                 <img style={{width:100, height: 100}} src="https://images.genius.com/d8feea72ac4d25343bdaccd07231fb11.593x593x1.png" alt="photo"/>
                 <Stack ml={3}>
                   <Typography mb={1} variant="body2">Demons</Typography>
                   <Typography variant="subtitle1">hayley kiyoko</Typography>
-                  <Center mt={3} justify="space-between" sx={{width: 180}}> 
+                  <Center mt={3} justify="space-between" sx={{width: 220}}> 
                       <Box ml={4}>
                         <IconButton><SkipBack  style={{width:20, height:20}}/></IconButton> 
                       </Box>
@@ -107,7 +108,7 @@ export default function App() {
             </Paper>
 
 
-            <Card sx={{maxWidth: 300}}>
+            <Card sx={{ maxWidth }}>
               <img style={{width: '100%', height: 'auto'}} src="https://cdn.britannica.com/20/93520-050-3E663489/Puma.jpg" alt="puma" />
               <Stack>
               <Typography mt={2} variant="body1" className="bold">puma</Typography>
@@ -127,7 +128,7 @@ export default function App() {
         <Stack spacing={2}>
 
 
-          <Paper mb={2} sx={{maxWidth: 300}} className="demo-paper">
+          <Paper mb={2} sx={{ maxWidth }} className="demo-paper">
             <Stack>
               <Flex align="center" mb={2}>  
               <IconButton><Lock /> </IconButton>Check security status</Flex>  
@@ -144,7 +145,7 @@ export default function App() {
             </Stack>
           </Paper>
 
-          <Paper mb={2} sx={{maxWidth: 300}}>
+          <Paper mb={2} sx={{ maxWidth }}>
             <Flex justify="space-between">
               <Switch onChange={b => setState('c1', b)} checked={c1} color="success" />
               <Switch onChange={b => setState('c2', b)} checked={c2} color="warning" />
@@ -154,7 +155,7 @@ export default function App() {
           </Paper>
 
 
-          <Card sx={{maxWidth: 300}}>
+          <Card sx={{ maxWidth }}>
             <List 
             header={<Box  p={2}><Typography variant="caption">To-do List</Typography></Box>}
             items={['apples', 'pears', 'oranges', 'world peace'].map(x=><Box key={x} p={2}>{x}</Box>)} />
