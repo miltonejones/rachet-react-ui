@@ -1,6 +1,7 @@
 import {
   Alert, //
   Avatar, //
+  AppBar,
   Backdrop,
   Box, //
   Button, //
@@ -16,8 +17,11 @@ import {
   Inspector,
   List,
   Menu,
+  Paper,
   Select,
   Snackbar,
+  Spacer,
+  Stack,  
   Switch, //
   TextBox, //
   Typography, //
@@ -26,10 +30,12 @@ import {
 
 import usePrompt from "./hooks/usePrompt";
 import useSnackbar from "./hooks/useSnackbar";
+import useComponentState from "./hooks/useComponentState";
 
 export {
   Alert, //
   Avatar,
+  AppBar,
   Backdrop,
   Box, //
   Button, //
@@ -45,12 +51,16 @@ export {
   Inspector,
   List,
   Menu,
+  Paper,
   Select,
   Snackbar,
+  Spacer,
   useSnackbar,
+  Stack,
   Switch, //
   TextBox, //
   Typography, //
   usePrompt,
+  useComponentState,
   css,
 };

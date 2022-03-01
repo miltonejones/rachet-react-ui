@@ -10,7 +10,7 @@ const append = (o, a) => !(a?.split && a?.length)? o : construct(o, a);
 
 export const css = (o, a) => { 
   // alert ([o,a])
-  return Object.keys(o ?? {}) 
+  return Object.keys(append(o, a)) 
   .filter((i) => !!o[i])
   .join(" ");
 }

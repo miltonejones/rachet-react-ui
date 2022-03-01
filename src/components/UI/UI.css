@@ -42,6 +42,7 @@ body {
   border-style: var(--border-style);
   min-height: var(--min-height);
   min-width: var(--min-width);
+  font-family: var(--font-family);
 }
 
 .ui-control {
@@ -167,14 +168,16 @@ body {
   background-color: #fff;
   top: 110vh;
   left: calc(50vw - (var(--dialog-width) / 2));
-  transition: top 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   padding: 12px;
   border-radius: 4px;
   box-shadow: var(--card-shadow);
+  opacity: 0;
 }
 
 .dialog.open {
   top: calc(50vh - (var(--dialog-height) / 2));
+  opacity: 1;
 }
 
 .divider {

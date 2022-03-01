@@ -57,9 +57,10 @@ export function Alert({ children, severity = "info", icon: Photo, ...props }) {
 /****************************************************************************************************
  *                                           AppBar
  ****************************************************************************************************/
-export function AppBar({ children, color="primary",  ...props }) { 
+export function AppBar({ children, color="primary", className, ...props }) { 
+  const classes = { ui: 1, 'ui-control': 1, 'app-bar': 1 }
   return (
-    <Flex align="center" color={color} className="ui ui-control app-bar" {...props}>
+    <Flex align="center" color={color} className={css(classes, className)} {...props}>
       {children}
     </Flex>
   );
@@ -238,7 +239,7 @@ export function Flex({
     justifyContent,
     alignItems,
     width,
-    margin,
+    // margin,
     flexWrap, 
     ...convertProps(props),
   };
@@ -273,8 +274,8 @@ export function Frame({ offset = 0, children, ...props }) {
     !!offsetTop && setHeight(`calc(100vh - ${offsetTop}px - ${offset}px)`);
   }, [ref]);
   return (
-    <Iw {...props}>
-      <Cw {...props} style={{ height }} className="frame" ref={ref}>
+    <Iw {...props}> 
+      <Cw {...props} style={{ height }} className={css({frame: 1}, props.className)} ref={ref}>
         {children}
       </Cw>
     </Iw>
@@ -302,13 +303,14 @@ export function Grid({ columns, children, ...props }) {
  * IconButton
  * a circle with an onClick event...whew that's a toughie
  ****************************************************************************************************/
-export function IconButton({ children, onClick, size = "medium", ...props }) {
+export function IconButton({ children, onClick, size = "medium", className, ...props }) {
+  const classes = { ui: 1, 'ui-size': 1, 'icon-button': 1 }
   return (
     <Flex
       onClick={(e) => !props.disabled && onClick && onClick(e)}
       justify="center"
       align="center"
-      className="ui ui-size icon-button"
+      className={css(classes, className)}
       {...props}
       size={size}
       style={{ ...convertProps(props) }}
@@ -409,7 +411,7 @@ export function Menu({ options = [], onChange, button }) {
       <fieldset
         {...props}
         className={css({ paper: 1 }, props.className)}
-        style={  convertProps(props) }
+        style={ convertProps(props) }
       >
         {children}
       </fieldset>
@@ -417,6 +419,9 @@ export function Menu({ options = [], onChange, button }) {
   );
 }
 
+/****************************************************************************************************
+ * Pagination 
+ ****************************************************************************************************/
 export function Pagination({click, ...props}) {
   const {
     page, 

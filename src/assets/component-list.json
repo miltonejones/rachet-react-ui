@@ -1,0 +1,52 @@
+[
+    {
+        "category":  "Data Display",
+        "components": [
+            "Avatar",
+            "Chip",
+            "Divider",
+            "List",
+            "Typography"
+        ]
+    },
+    {
+        "category":  "Feedback",
+        "components": [
+            "Alert",
+            "Dialog",
+            "Snackbar"
+        ]
+    },
+   { 
+       "category":  "Inputs",
+       "components": [
+        "Button",
+        "TextBox",
+        "Select",
+        "Switch"
+    ]
+    },
+   { "category":  "Layout",
+    "components": [
+        "Box",
+        "Stack",
+        "Grid",
+        "Flex"
+    ]},
+   { "category":  "Navigation",
+    "components": [
+        "Bottom Navigation",
+        "Drawer",
+        "Menu",
+        "Pagination"
+    ]},
+   { "category":  "Surfaces",
+    "components": [
+        "Card",
+        "Paper",
+        "App Bar"
+    ]},
+   { "category":  "Utils",
+    "components": [
+        "Inspector"
+    ]}]

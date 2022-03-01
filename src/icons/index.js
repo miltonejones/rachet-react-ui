@@ -24,6 +24,9 @@ export const CheckCircle = (p) => (
   <IconBase {...p} src="/icon/check-circle.svg" />
 );
 
+export const Clipboard = (p) => <IconBase {...p} src="/icon/clipboard.svg" />;
+export const SkipBack = (p) => <IconBase {...p} src="/icon/skip-back.svg" />;
+export const SkipFwd = (p) => <IconBase {...p} src="/icon/skip-fwd.svg" />;
 export const Database = (p) => <IconBase {...p} src="/icon/database.svg" />;
 export const Plus = (p) => <IconBase {...p} src="/icon/plus.svg" />;
 export const Key = (p) => <IconBase {...p} src="/icon/key.svg" />;
@@ -33,6 +36,8 @@ export const Logout = (p) => <IconBase {...p} src="/icon/log-out.svg" />;
 export const Aperture = (p) => <IconBase {...p} src="/icon/aperture.svg" />;
 export const Dribble = (p) => <IconBase {...p} src="/icon/dribble.svg" />;
 export const Sync = (p) => <IconBase {...p} src="/icon/refresh-cw.svg" />;
+export const Github = (p) => <IconBase {...p} src="/icon/github.svg" />;
+export const Search = (p) => <IconBase {...p} src="/icon/search.svg" />;
 export const Smiley = (p) => (
   <IconBase width="24" height="24" {...p} src="/icon/smiley.svg" />
 );
