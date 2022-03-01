@@ -70,7 +70,7 @@ export default function App() {
       
         <Flex mt={12}>
           <Flex align="center" className="git-button">
-             Get Started <ChevronRight />
+             Get Started <Spacer /> <ChevronRight />
           </Flex>
             <Spacer />
           <Flex className="git-box">
